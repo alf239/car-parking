@@ -623,23 +623,31 @@ Think about riding a bicycle:
 
 \begin{center}
 \begin{tikzpicture}[scale=0.75]
-  % Slow turn (tight)
-  \begin{scope}[shift={(-4,0)}]
-    \draw[roadgrey,very thick] (0,0) circle (1.5);
-    \drawcar{0}{1.5}{-10}
-    \node[font=\footnotesize\bfseries] at (0,-2.2) {Slow = tight turn};
-    \draw[{Stealth}-{Stealth},black!50] (0,0) -- (0,1.5);
-    \node[font=\tiny,black!50,right] at (0.05,0.75) {small};
-    \node[font=\tiny,black!50,right] at (0.05,0.45) {radius};
+  % Slow turn (tight) — car at bottom, path curving ahead to the right
+  \begin{scope}[shift={(-4.5,0)}]
+    % The car starts pointing up, turns right along a tight arc
+    \draw[roadgrey,very thick,-{Stealth}] (0,-2) arc (180:80:1.5);
+    % Car at the start of the arc, pointing up
+    \drawcar{0}{-2}{0}
+    % Radius line from centre of arc to car
+    \draw[black!50,dashed] (1.5,-2) -- (0,-2);
+    \node[font=\tiny,black!50,above] at (0.75,-2) {small radius};
+    % Centre dot
+    \fill[black!30] (1.5,-2) circle (0.06);
+    \node[font=\footnotesize\bfseries] at (0.5,-3.2) {Slow = tight turn};
   \end{scope}
-  % Fast turn (wide)
+  % Fast turn (wide) — car at bottom, path curving ahead gently to the right
   \begin{scope}[shift={(4,0)}]
-    \draw[roadgrey,very thick] (0,-1.5) arc (-90:30:3);
-    \drawcar{1.5}{1.1}{50}
-    \node[font=\footnotesize\bfseries] at (0,-2.2) {Fast = wide turn};
-    \draw[{Stealth}-{Stealth},black!50] (0,-1.5) -- (0,1.5);
-    \node[font=\tiny,black!50,right] at (0.05,0) {large};
-    \node[font=\tiny,black!50,right] at (0.05,-0.3) {radius};
+    % Same starting position, but much wider arc
+    \draw[roadgrey,very thick,-{Stealth}] (0,-2) arc (180:120:4);
+    % Car at the start of the arc, pointing up
+    \drawcar{0}{-2}{0}
+    % Radius line from centre of arc to car
+    \draw[black!50,dashed] (4,-2) -- (0,-2);
+    \node[font=\tiny,black!50,above] at (2,-2) {large radius};
+    % Centre dot
+    \fill[black!30] (4,-2) circle (0.06);
+    \node[font=\footnotesize\bfseries] at (0.5,-3.2) {Fast = wide turn};
   \end{scope}
 \end{tikzpicture}
 \end{center}
