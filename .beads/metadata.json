@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "physics",
+  "project_id": "63ef3453-8990-4e6d-983a-1366facbc12a"
+}
